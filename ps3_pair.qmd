@@ -30,14 +30,14 @@ data = pd.DataFrame(np.random.rand(100), columns=['Random Numbers'])
 
 def preview_data(df):
     print(df.head())
+    describe_list=df.describe()
     head_data = df.head()
-    
     histogram = alt.Chart(df).mark_bar().encode(
         x=alt.X('Random Numbers', bin=True), 
         y='count()'
     )
     histogram.save('histogram.png')
-    return [head_data, 'histogram.png']
+    return [head_data, describe_list，'histogram.png']
 
 preview_data(data)
 ```
